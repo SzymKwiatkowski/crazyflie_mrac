@@ -80,7 +80,8 @@ RUN apt-get update && apt-get install -y git && \
 # CMD ["/bin/bash"]
 
 RUN mkdir /root/ws && mkdir /root/ws/src && cd /root/ws/src && \
-    git clone -b dev/ros-noetic https://github.com/gsilano/CrazyS.git && \
+    git clone -b dev/ros-noetic https://github.com/gsilano/rotors_simulator.git && \
+    git clone -b dev/ros-noetic https://github.com/gsilano/BebopS.git && \
     git clone -b med18_gazebo9 https://github.com/gsilano/mav_comm.git && \
     apt-get install -y python3-rosdep -y python3-wstool -y ros-noetic-ros -y libgoogle-glog-dev 
 

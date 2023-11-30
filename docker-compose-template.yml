@@ -7,12 +7,14 @@ services:
         environment:
             - "ROS_MASTER_URI=http://ros-master:11311"
         command: ros2 run ros1_bridge dynamic_bridge
+        network-mode: "host"
 
     # ROS
     ros-master:
         image: ros:noetic-ros-core
         tty: true        # docker run -t
         command: stdbuf -o L roscore
+        network-mode: "host"
         
     # ROS
     ros1:
@@ -21,8 +23,10 @@ services:
             - "ROS_MASTER_URI=http://ros-master:11311"
         tty: true        # docker run -t
         command: rosrun rospy_tutorials talker
+        network-mode: "host"
         
     # ROS 2
     ros2:
         image: osrf/ros:foxy-desktop
         command: ros2 run demo_nodes_cpp listener
+        network-mode: "host"
